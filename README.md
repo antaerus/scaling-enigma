@@ -73,12 +73,15 @@ The curve rises steeply to ~0.73 TPR before the elbow. At a very low false posit
 
 ## Next Steps
 
-Per next steps, threshold tuning offers the most immediate gain - by lowering the classification threshold below the default 0.5, the model could become more aggressive in flagging fraud at a cost of modest increase in false positives. Optimizing this trade-off via a precision-recall curve would allow the threshold to be set deliberately based on business tolerance.
+**Threshold tuning** offers the most immediate gain. Could lowering the classification threshold below the default 0.5  make models more aggressive in flagging fraud? For some job seekers who can higher false positives, this could prove efficient. A precision-recall curve analysis would allow this trade-off to be set deliberately based on platform tolerance.
 
-Feather enrichment through transfer learning on external corpora - such as the UCI SMS Spam Dataset - could expose the model to broader deceptive language patterns beyond just job postings. 
+**Transformer architectures** like BERT could unlock deeper semantic understanding. Rather than relying on individual TF-IDF tokens, BERT's contextual embeddings could identify recurring phrases, sentence-level deception patterns, and subtle tonal shifts that bag-of-words features cannot capture.
 
-Ensemble methods like XGBoost could capture non-linear feature interactions and thus surface fraud signals that logistic regression's lienar decision boundaries would miss entirely.
+**Feature enrichment** through external datasets could broaden the model's fraud vocabulary:
 
-For deeper semantic understanding, neural appraoches e.g. Keras-based deep networks or transformer models like BERT could also prove useful. BERT, having been pre-trained on vast text corpora, could contextualize buzz words and other galvanizing language often employed by fraudulent postings.
+- The [UCI SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) would expose the model to cross-domain deceptive language — urgency cues, financial bait, and data harvesting prompts beyond job-specific vocabulary
+- The [LinkedIn Job Postings Dataset](https://huggingface.co/datasets/datastax/linkedin_job_listings), while unlabeled for fraud, would provide contemporary posting norms against which anomalies could be benchmarked
 
-A combination of these strategies can improve this baseline towards a deployable job scam detection system.
+**Temporal validation** is also critical. Fraudulent tactics evolve rapidly, and evaluating current models against more recent postings would test whether learned signals still generalize or have drifted.
+
+A combination of these strategies would advance this baseline toward a deployable, production-grade job scam detection system.
